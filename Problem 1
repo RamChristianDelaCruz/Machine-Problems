@@ -4,30 +4,42 @@ using namespace std;
 
 int main()
 {
-	int i,j;
-	double irgrade;
+	int i,j,k,l,m,n;
+
 string  names[5];
-int sample[10];
-int individualreports[10];
+int individualreportgrade[10];
+int ir[10],groupreports[10],gr[10];
 
 cout<<"Enter students names: ";                 //for inputing student names
 for( i=0;i<5;i++){
 	cin>> names[i];
 }
-cout<<names[0]<<": ";                          
-for(i=1;i<10;i++){                             //for inputting student's 10 individual grade scores
+cout<<names[0]<<" ";                          
+for(i=0;i<5;i++){                             //for inputting student's 10 individual grade scores
 
 for(j=1;j<11;j++){
 	cout<<"Enter Individual report grade "<<j<<" : ";
-	cin>> sample[j];
+	cin>> ir[j];
 }
-individualreports[i]=sample[1]+sample[2]+sample[3]+sample[4]+sample[5]+sample[6]+sample[7]+sample[8]+sample[9]+sample[10];  //for outputting student's indivudual grade percentage
-cout<<"Percent grade: "<<individualreports[i]*.15<<"%"<<endl;
-cout<<names[i]<<": ";
+individualreportgrade[i]=ir[1]+ir[2]+ir[3]+ir[4]+ir[5]+ir[6]+ir[7]+ir[8]+ir[9]+ir[10];  //for outputting student's indivudual grade percentage
+cout<<"Individual Report Percent grade: "<<individualreportgrade[i]*.15<<"%"<<endl;
+cout<<names[i+1]<<" ";
 j=1;
-
 }
-cout<<individualreports[1];
+
+cout<<names[0]<<" ";                          
+for(k=0;k<10;k++){                             //for inputting student's 10 Group grade scores
+
+for(l=1;l<11;l++){
+	cout<<"Enter Group report grade "<<l<<" : ";
+	cin>> gr[l];
+}
+groupreports[k]=gr[1]+gr[2]+gr[3]+gr[4]+gr[5]+gr[6]+gr[7]+gr[8]+gr[9]+gr[10];  //for outputting student's Group grade percentage
+cout<<"Group Report Percent grade: "<<groupreports[k]*.25<<"%"<<endl;
+cout<<names[k+1]<<": ";
+l=1;
+}
+
 for(i=0;i<5;i++){
 	cout<<names[i]<<endl;
 }
