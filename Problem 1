@@ -1,49 +1,74 @@
 #include<iostream>
-
+#include<string>
 using namespace std;
+int main(){
+int i,j;                                                                        //Declaration of needed arrays and other variables
+int IRscore[10],IRgrade[5],GRscore[10],GRgrade[5],QZscore[2],QZgrade[5],MEscore[2],MEgrade[5];
+string name[5];
 
-int main()
-{
-	int i,j,k,l,m,n;
-
-string  names[5];
-int individualreportgrade[10];
-int ir[10],groupreports[10],gr[10];
-
-cout<<"Enter students names: ";                 //for inputing student names
-for( i=0;i<5;i++){
-	cin>> names[i];
+for(i=0;i<5;i++){                                                              //For inputting student names
+	cout<<"Enter student name "<<i+1<<": ";
+	getline(cin,name[i]);	
 }
-cout<<names[0]<<" ";                          
-for(i=0;i<5;i++){                             //for inputting student's 10 individual grade scores
-
-for(j=1;j<11;j++){
-	cout<<"Enter Individual report score "<<j<<" : ";
-	cin>> ir[j];
-}
-individualreportgrade[i]=ir[1]+ir[2]+ir[3]+ir[4]+ir[5]+ir[6]+ir[7]+ir[8]+ir[9]+ir[10];  //for outputting student's indivudual grade 
-cout<<"Individual Report grade: "<<individualreportgrade[i]*.15<<endl;
-cout<<names[i+1]<<" ";
-j=1;
+for(i=0;i<5;i++){                                                             //For inputting student's individual report scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<10;j++){	
+		cout<<"Enter Individual Report "<<j+1<<" score: "; 
+		cin>>IRscore[j];
+		if(IRscore[j]>100){
+			cout<<"Error "<<endl;
+			break;
+		}
+	}                                                                        //For computing and outputing individual report grades
+	IRgrade[i]=IRscore[0]+IRscore[1]+IRscore[2]+IRscore[3]+IRscore[4]+IRscore[5]+IRscore[6]+IRscore[7]+IRscore[8]+IRscore[9];
+	cout<<"Individual Report grade: "<<IRgrade[i]*.15<<endl;
+	j=0;
 }
 
-cout<<names[0]<<" ";                          
-for(k=0;k<5;k++){                             //for inputting student's 10 Group grade scores
-
-for(l=1;l<11;l++){
-	cout<<"Enter Group report score "<<l<<" : ";
-	cin>> gr[l];
-}
-groupreports[k]=gr[1]+gr[2]+gr[3]+gr[4]+gr[5]+gr[6]+gr[7]+gr[8]+gr[9]+gr[10];  //for outputting student's Group grade 
-cout<<"Group Report  grade: "<<groupreports[k]*.25<<endl;
-cout<<names[k+1]<<" ";
-l=1;
-}
-
-for(i=0;i<5;i++){
-	cout<<names[i]<<endl;
+for(i=0;i<5;i++){                                                           //For inputting student's group report scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<10;j++){
+		cout<<"Enter Group Report "<<j+1<<" score: ";
+		cin>>GRscore[j];
+		if(GRscore[j]>100){
+			cout<<"Error "<<endl;
+			break;
+		}
+	}                                                                      //For computing and outputing group report grades
+	GRgrade[i]=GRscore[0]+GRscore[1]+GRscore[2]+GRscore[3]+GRscore[4]+GRscore[5]+GRscore[6]+GRscore[7]+GRscore[8]+GRscore[9];
+	cout<<"Group Report grade: "<<GRgrade[i]*.25<<endl;
+	j=0;
 }
 
+for(i=0;i<5;i++){                                                         //For inputting student's quiz scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<2;j++){
+		cout<<"Enter Quiz "<<j+1<<" score: ";
+		cin>>QZscore[j];
+		if(QZscore[j]>100){
+			cout<<"Error"<<endl;
+			break;	
+		} 
+	}                                                                    //For computing and outputing quiz grades
+	QZgrade[i]=QZscore[0]+QZscore[1];
+	cout<<"Quiz grade: "<<QZgrade[i]*.20<<endl;
+	j=0;
+}
+
+for(i=0;i<5;i++){                                                       //For inputting student's major examination scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<2;j++){
+		cout<<"Enter Major Examination part "<<j+1<<": ";
+		cin>>MEscore[j];
+		if(MEscore[j]>100){
+			cout<<"Error"<<endl;
+			break;
+		}
+	}
+	MEgrade[i]=MEscore[0]/30+MEscore[1]/70;                            //For computing and outpitting major examination scores
+	cout<<"Major Examination grade: "<<MEgrade[i]*40<<endl;
+	j=0;
+}
 
 return 0;
 }
