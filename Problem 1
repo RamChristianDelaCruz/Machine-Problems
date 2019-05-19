@@ -9,20 +9,25 @@ int main()
 string  names[5];
 int sample[10];
 int individualreports[10];
-cout<<"Enter students names: ";
+
+cout<<"Enter students names: ";                 //for inputing student names
 for( i=0;i<5;i++){
 	cin>> names[i];
 }
-for(i=1;i<6;i++)
-{
-cout<< "Enter grade "<<i<<": ";
-cin>>sample[i];
-irgrade= +sample[i]*.15;
+cout<<names[0]<<": ";                          
+for(i=1;i<10;i++){                             //for inputting student's 10 individual grade scores
+
+for(j=1;j<11;j++){
+	cout<<"Enter Individual report grade "<<j<<" : ";
+	cin>> sample[j];
+}
+individualreports[i]=sample[1]+sample[2]+sample[3]+sample[4]+sample[5]+sample[6]+sample[7]+sample[8]+sample[9]+sample[10];  //for outputting student's indivudual grade percentage
+cout<<"Percent grade: "<<individualreports[i]*.15<<"%"<<endl;
+cout<<names[i]<<": ";
+j=1;
 
 }
-cout<<irgrade;
-cout<< "Reprint"<<endl;
-
+cout<<individualreports[1];
 for(i=0;i<5;i++){
 	cout<<names[i]<<endl;
 }
