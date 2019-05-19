@@ -66,7 +66,7 @@ for(i=0;i<5;i++){                                                       //For in
 			break;
 		}
 	}
-	MEgrade[i]=(MEscore[0]/3.33*100*20+MEscore[1]/1.43*100*.20);                            //For computing and outpitting major examination scores
+	MEgrade[i]=(MEscore[0]/30+MEscore[1]/70)/4.76*200*.40;                            //For computing and outpitting major examination scores
 	cout<<"Major Examination grade: "<<MEgrade[i]<<endl;
 	j=0;
 }
