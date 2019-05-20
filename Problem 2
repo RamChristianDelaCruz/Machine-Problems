@@ -1,15 +1,50 @@
 #include<iostream>
-
+#include<conio.h>
+#include<cmath>
+#include<iomanip>
 using namespace std;
 
 int main()
 {
-int base,leg1,leg2;                                                //Declaration of need variables
+double base,leg1,leg2,semiperimeter,area;                                  //Declaration of need variables
+double angle1,angle2,angle3,pi=3.14; 
 cout<<"Enter the triangle's base: ";cin>>base;                     //Makes the user input the measurements of 3 sides of a triangle
 cout<<"Enter the triangle's first leg: ";cin>>leg1;
 cout<<"Enter the triangle's second leg: ";cin>>leg2;
 cout<<"Base: "<<base<<endl;                                       //Outputs the measurements given
 cout<<"Legs: "<<leg1<<","<<leg2<<endl;
+cout<<"Next (Press a key)"<<endl;
+_getch();
+
+if(base==leg1 && leg1==leg2)                                     //For determining if the triangle is equilateral,isosceles, or scalence
+cout<<"Equilateral Triangle"<<endl;
+else if(base!=leg1&&base!=leg2)
+cout<<"Scalene Triangle"<<endl;	
+else cout<<"Isosceles Triangle"<<endl;
+cout<<"Next (Press a key)"<<endl;
+_getch();
+
+cout<<"Perimeter = "<<base+leg1+leg2<<endl;                     //For computing and outputing the perimeter                
+semiperimeter=(base+leg1+leg2)/2;                               //For computing and outputing the area
+area=sqrt(semiperimeter*(semiperimeter-base)*(semiperimeter-leg1)*(semiperimeter-leg2));
+cout<<"Area = "<<area<<endl;
+cout<<"Next (Press a key)"<<endl;
+_getch();
+
+cout<<setprecision(2);                                              //Sets the decimal places to 2
+angle1=acos((pow(base,2)-pow(leg1,2)-pow(leg2,2))/-(2*leg1*leg2)); // For computing and outputing the angles
+angle2=acos((pow(leg1,2)-pow(leg2,2)-pow(base,2))/-(2*leg2*base));
+angle3=acos((pow(leg2,2)-pow(leg1,2)-pow(base,2))/-(2*leg1*base));
+cout<<"Angles: "<<angle1/3.1415*180<<", "<<angle2/3.1415*180<<", "<<angle3/3.1415*180<<endl;
+cout<<"Next (Press a key)"<<endl;
+_getch();
+
+if(angle1<=89&&angle2<=89&&angle3<=89)
+cout<<"Acute Triangle"<<endl;
+if (angle1==90||angle2==90||angle3==90)
+cout<<"Right Triangle"<<endl;
+if (angle1>91||angle2>91||angle3>91)
+cout<<"Obtuse Triangle"<<endl;
 
 return 0;
 }
