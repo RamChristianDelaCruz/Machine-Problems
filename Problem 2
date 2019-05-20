@@ -1,0 +1,15 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+int base,leg1,leg2;                                                //Declaration of need variables
+cout<<"Enter the triangle's base: ";cin>>base;                     //Makes the user input the measurements of 3 sides of a triangle
+cout<<"Enter the triangle's first leg: ";cin>>leg1;
+cout<<"Enter the triangle's second leg: ";cin>>leg2;
+cout<<"Base: "<<base<<endl;                                       //Outputs the measurements given
+cout<<"Legs: "<<leg1<<","<<leg2<<endl;
+
+return 0;
+}
