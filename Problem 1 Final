@@ -1,1 +1,145 @@
+#include<iostream>
+#include<string>
+#include<conio.h>
+using namespace std;
+int main(){
+int i,j,x;                                                                        //Declaration of needed arrays and other variables
+double IRscore[10],IRgrade[50],GRscore[10],GRgrade[50],QZscore[2],QZgrade[50],MEscore[2],MEgrade[50],rawgrade[50],transmuted[50];
+string name[50],passorfail[50];
 
+for(i=0;i<50;i++){                                                              //For inputting student names
+	cout<<"Enter student name "<<i+1<<": ";
+	getline(cin,name[i]);	
+}
+for(i=0;i<50;i++){                                                             //For inputting student's individual report scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<10;j++){	
+		cout<<"Enter Individual Report "<<j+1<<" score: "; 
+		cin>>IRscore[j];
+		if(IRscore[j]>100){
+			cout<<"Error "<<endl;break;}
+			}
+			if(IRscore[j]>100){cout<<"Error "<<endl;break;}
+			                                                                        //For computing and outputing individual report grades
+	IRgrade[i]=(IRscore[0]+IRscore[1]+IRscore[2]+IRscore[3]+IRscore[4]+IRscore[5]+IRscore[6]+IRscore[7]+IRscore[8]+IRscore[9])/1000*100*.15;
+	cout<<"Individual Report grade: "<<IRgrade[i]<<endl;
+	j=0;
+}
+    for(i=0;i<50;i++){                                                           //For inputting student's group report scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<10;j++){
+		cout<<"Enter Group Report "<<j+1<<" score: ";
+		cin>>GRscore[j];
+		if(GRscore[j]>100){cout<<"Error "<<endl;break;}	
+		}
+		if(GRscore[j]>100){cout<<"Error "<<endl;break;}
+		                                                                    //For computing and outputing group report grades
+	GRgrade[i]=(GRscore[0]+GRscore[1]+GRscore[2]+GRscore[3]+GRscore[4]+GRscore[5]+GRscore[6]+GRscore[7]+GRscore[8]+GRscore[9])/1000*100*.25;
+	cout<<"Group Report grade: "<<GRgrade[i]<<endl;
+	j=0;
+}
+for(i=0;i<50;i++){                                                         //For inputting student's quiz scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<2;j++){
+		cout<<"Enter Quiz "<<j+1<<" score: ";
+		cin>>QZscore[j];
+		if(QZscore[j]>100){cout<<"Error"<<endl;break;}	 
+		}
+		if(QZscore[j]>100){cout<<"Error"<<endl;break;}                                                                     //For computing and outputing quiz grades
+	QZgrade[i]=(QZscore[0]+QZscore[1])/200*100*.20;
+	cout<<"Quiz grade: "<<QZgrade[i]<<endl;
+	j=0;
+}
+for(i=0;i<50;i++){                                                       //For inputting student's major examination scores
+	cout<<name[i]<<" "<<endl;
+	for(j=0;j<2;j++){
+		cout<<"Enter Major Examination part "<<j+1<<": ";
+		cin>>MEscore[j];
+		if(MEscore[j]>100){cout<<"Error"<<endl;break;}
+		}
+		if(MEscore[j]>100){cout<<"Error"<<endl; break;}	
+	MEgrade[i]=(MEscore[0]/30/3.33*100*.20)+(MEscore[1]/70/1.43*100*.20);                            //For computing and outpitting major examination scores
+	cout<<"Major Examination grade: "<<MEgrade[i]<<endl;
+	j=0;
+}
+	for(i=0;i<50;i++){                                                                               //Recap of the computed grades per student
+		cout<<"                           "<<name[i]<<endl;
+		cout<<"Individual Report: "<<IRgrade[i]<<endl;
+		cout<<"Group Report: "<<GRgrade[i]<<endl;
+		cout<<"Quizzes: "<<QZgrade[i]<<endl;
+		cout<<"Major Examinations: "<<MEgrade[i]<<endl;
+		_getch();
+		for(j=0;j<50;j++){                                                                          //Computation and output for raw grade
+			rawgrade[j]=IRgrade[j]+GRgrade[j]+QZgrade[j]+MEgrade[j];
+		}
+		cout<<"Raw Grade: "<<rawgrade[i]<<endl;
+		cout<<"Next (Press a key)"<<endl;
+		_getch();
+	}
+	cout<<endl;
+	for(i=0;i<50;i++){                                                          //Transmutation     
+		cout<<name[i]<<" Final Grade: ";
+		for (j=0;j<50;j++){
+			if(rawgrade[j]<=100&&rawgrade[i]>=95.57)
+		transmuted[j]=1.00;
+		else if(rawgrade[j]<=95.56&&rawgrade[i]>=91.12)
+		transmuted[j]=1.25;
+		else if(rawgrade[j]<=91.11&&rawgrade[i]>=86.68)
+		transmuted[j]=1.50;
+		else if(rawgrade[j]<=86.67&&rawgrade[i]>=82.23)
+		transmuted[j]=1.75;
+		else if(rawgrade[j]<=82.22&&rawgrade[i]>=77.79)
+		transmuted[j]=2.00;
+		else if(rawgrade[j]<=77.78&&rawgrade[i]>=73.34)
+		transmuted[j]=2.25;
+		else if(rawgrade[j]<=73.33&&rawgrade[i]>=68.90)
+		transmuted[j]=2.50;
+		else if(rawgrade[j]<=68.89&&rawgrade[i]>=64.45)
+		transmuted[j]=2.75;
+		else if(rawgrade[j]<=64.44&&rawgrade[i]>=60.00)
+		transmuted[j]=3.00;
+		else if (transmuted[j]<=59.99)
+		transmuted[j]=5.00;
+		else{cout<<"Error"<<endl; break;}
+		}
+		cout<<transmuted[i]<<endl<<endl;	
+	}
+	for(i=0;i<50;i++){                                         //for determining if the student has passed or failed
+		cout<<name[i]<<": ";
+		for(j=0;j<50;j++){
+			if(rawgrade[j]<=100&&rawgrade[i]>=95.57)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=95.56&&rawgrade[i]>=91.12)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=91.11&&rawgrade[i]>=86.68)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=86.67&&rawgrade[i]>=82.23)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=82.22&&rawgrade[i]>=77.79)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=77.78&&rawgrade[i]>=73.34)
+	    passorfail[j]="Passed";
+		else if(rawgrade[j]<=73.33&&rawgrade[i]>=68.90)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=68.89&&rawgrade[i]>=64.45)
+		passorfail[j]="Passed";
+		else if(rawgrade[j]<=64.44&&rawgrade[i]>=60.00)
+		passorfail[j]="Passed";
+		else if (transmuted[j]<=59.99)
+		passorfail[j]="Failed";
+	}
+		cout<<passorfail[i]<<endl;	                         
+	}
+	for(i=0;i<50;i++){                                   //Student Ranking
+	for(j=0;j<50;j++){
+		if (rawgrade[i]>rawgrade[j]){
+			x=rawgrade[i];
+			rawgrade[i]=rawgrade[j];
+			rawgrade[j]=x;
+		}
+	}
+	cout<<name[i]<<": "<<"Rank "<<i+1<<endl;
+	}
+
+return 0;
+}
