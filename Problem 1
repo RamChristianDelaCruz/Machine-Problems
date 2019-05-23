@@ -131,7 +131,7 @@ for(i=0;i<5;i++){                                                       //For in
 		cout<<passorfail[i]<<endl;	                         
 	}
 	for(i=0;i<5;i++){
-	for(j=0;j<5;j++){
+	for(j=i+1;j<5;j++){
 		if (rawgrade[i]>rawgrade[j]){
 			x=rawgrade[i];
 			rawgrade[i]=rawgrade[j];
