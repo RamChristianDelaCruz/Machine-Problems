@@ -138,7 +138,7 @@ for(i=0;i<5;i++){                                                       //For in
 			rawgrade[j]=x;
 		}
 	}
-	cout<<name[i]<<": "<<"Rank "<<i<<endl;
+	cout<<name[i]<<": "<<"Rank "<<i+1<<endl;
 	}
 
 return 0;
