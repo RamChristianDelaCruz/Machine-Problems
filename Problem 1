@@ -4,8 +4,8 @@
 using namespace std;
 int main(){
 int i,j,x;                                                                        //Declaration of needed arrays and other variables
-double IRscore[10],IRgrade[5],GRscore[10],GRgrade[5],QZscore[2],QZgrade[5],MEscore[2],MEgrade[5],rawgrade[5],transmuted[5];
-string name[5],passorfail[5];
+double z,IRscore[10],IRgrade[5],GRscore[10],GRgrade[5],QZscore[2],QZgrade[5],MEscore[2],MEgrade[5],rawgrade[5],transmuted[5];
+string y,name[5],passorfail[5];
 
 for(i=0;i<5;i++){                                                              //For inputting student names
 	cout<<"Enter student name "<<i+1<<": ";
@@ -130,16 +130,22 @@ for(i=0;i<5;i++){                                                       //For in
 	}
 		cout<<passorfail[i]<<endl;	                         
 	}
-	for(i=0;i<5;i++){
+	cout<< "                       Top 10"<<endl;
+	for(i=0;i<5;i++){                                
 	for(j=i+1;j<5;j++){
-		if (rawgrade[i]>rawgrade[j]){
+		if (rawgrade[i]<rawgrade[j]){                    //for rearranging top 10 raw grades
 			x=rawgrade[i];
 			rawgrade[i]=rawgrade[j];
 			rawgrade[j]=x;
+			
+			y=name[i];                                   //for rearranging top 10 names
+			name[i]=name[j];
+			name[j]=y;
 		}
 	}
-	cout<<name[i]<<": "<<"Rank "<<i+1<<endl;
 	}
-
+	for (i=0;i<5;i++){                                 //for outputting top 10
+		cout<<name[i]<<"    Raw Grade: "<<rawgrade[i]<<"    Rank "<<i+1<<endl;
+	}
 return 0;
 }
