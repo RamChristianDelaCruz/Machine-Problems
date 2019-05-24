@@ -144,7 +144,7 @@ for(i=0;i<50;i++){                                                       //For i
 		}
 	}
 	}
-	for (i=0;i<10i++){                                 //for outputting top 10
+	for (i=0;i<10;i++){                                 //for outputting top 10
 		cout<<name[i]<<"    Raw Grade: "<<rawgrade[i]<<"    Rank "<<i+1<<endl;
 	}
 return 0;
