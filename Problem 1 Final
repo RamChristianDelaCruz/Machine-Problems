@@ -130,16 +130,25 @@ for(i=0;i<50;i++){                                                       //For i
 	}
 		cout<<passorfail[i]<<endl;	                         
 	}
-	for(i=0;i<50;i++){                                   //Student Ranking
+	cout<< "                       Top 10"<<endl;
+	for(i=0;i<50;i++){                                
 	for(j=i+1;j<50;j++){
-		if (rawgrade[i]>rawgrade[j]){
+		if (rawgrade[i]<rawgrade[j]){                    //for rearranging top 10 raw grades
 			x=rawgrade[i];
 			rawgrade[i]=rawgrade[j];
 			rawgrade[j]=x;
+			
+			y=name[i];                                   //for rearranging top 10 names
+			name[i]=name[j];
+			name[j]=y;
 		}
 	}
-	cout<<name[i]<<": "<<"Rank "<<i+1<<endl;
 	}
+	for (i=0;i<10i++){                                 //for outputting top 10
+		cout<<name[i]<<"    Raw Grade: "<<rawgrade[i]<<"    Rank "<<i+1<<endl;
+	}
+return 0;
+}
 
 return 0;
 }
